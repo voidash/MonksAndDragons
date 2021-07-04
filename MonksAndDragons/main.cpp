@@ -95,9 +95,9 @@ void GameLogic(RoomNavigator &navigator) {
             cout << "------------------------------x-----------------------------"  << endl;
             //ASCII character here
 
-//            if(SettingsSingleton::getInstance().settings.title == Title::ASCII){
-//               cout << TUIComponent::AsciiTitle << endl;
-//            }
+            if(SettingsSingleton::getInstance().settings.title == Title::ASCII){
+               cout << TUIComponent::AsciiLevel << endl;
+            }
             break;
         }
     }

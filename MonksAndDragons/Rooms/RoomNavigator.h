@@ -23,6 +23,7 @@ private:
     Level* l;
     bool testing;
 
+    void printAsciiRooms();
 };
 
 

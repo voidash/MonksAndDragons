@@ -49,8 +49,10 @@ struct SettingsJSON{
         std::ifstream i("settings.json");
         if(i.good())
             i >> j;
-        else
-            writeJSON();
+        else {
+            writeJSONForNew();
+        }
+
     }
 
     /**
@@ -61,6 +63,13 @@ struct SettingsJSON{
         std::ofstream o("settings.json");
         //set width number to 4
         o << std::setw(4) << j << std::endl;
+    }
+    void writeJSONForNew(){
+        j = json{{"title",Title::ASCII},{"randomLevel", false}};
+        std::ofstream o("settings.json");
+        //set width number to 4
+        o << std::setw(4) << j << std::endl;
+
     }
 
 private:

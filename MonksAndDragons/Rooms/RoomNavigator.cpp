@@ -2,23 +2,53 @@
 // Created by games on 7/4/2021.
 //
 
+#include <SettingsSingleton.h>
+#include <TUI/MiscComponents.h>
 #include "RoomNavigator.h"
 #include "SubjectInstance.h"
 
+#include <iostream>
+using namespace std;
+
 RoomNavigator::RoomNavigator(MovingEntity *entity, Level *l,bool testing) : e(entity), l(l), testing(testing) {
 
+    printAsciiRooms();
     l->start->log(SubjectInstance::subject);
     if(!testing)
         l->start->roomSpeciality(*e);
 
 }
 
+void RoomNavigator::printAsciiRooms(){
+    RoomType ros =  l->start->roomType;
+    if(SettingsSingleton::getInstance().settings.title == Title::ASCII){
+        switch(ros){
+            case EMPTY:
+            {
+                cout << TUIComponent::EmptyRoom << endl;
+                break;
+            }
+            case TREASURE:
+            {
+                cout << TUIComponent::TreasureRoom << endl;
+                break;
+            }
+            case MONSTER: {
+                cout << TUIComponent::MonsterRoom << endl;
+                break;
+            }
+            case NULLROOM:
+                break;
+        }
+    }
+}
 
 bool RoomNavigator::getNextRoom() {
-   if(l->start->next != nullptr) {
+    if(l->start->next != nullptr) {
        l->start = l->start->next;
 
        l->start->log(SubjectInstance::subject);
+       printAsciiRooms();
        if(!testing)
            l->start->roomSpeciality(*e);
 
@@ -32,6 +62,7 @@ bool RoomNavigator::getPreviousRoom() {
     if(l->start->previous != nullptr) {
         l->start = l->start->previous;
         l->start->log(SubjectInstance::subject);
+        printAsciiRooms();
         if(!testing)
             l->start->roomSpeciality(*e);
         return true;
