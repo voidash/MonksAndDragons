@@ -1,0 +1,12 @@
+//
+// Created by games on 7/4/2021.
+//
+
+#ifndef MONKSANDDRAGONS_MONSTERTYPES_H
+#define MONKSANDDRAGONS_MONSTERTYPES_H
+enum MonsterTypes{
+    UNRECOGNIZED,
+    GOBLIN
+};
+
+#endif //MONKSANDDRAGONS_MONSTERTYPES_H
