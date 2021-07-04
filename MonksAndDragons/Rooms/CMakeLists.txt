@@ -1,4 +1,4 @@
-add_library(rooms Level.h Level1.h Level2.h RoomFactory.h)
+add_library(rooms Level.h Level1.h Level2.h RoomFactory.h RandomLevelGenerator.h)
 
 set_target_properties(rooms PROPERTIES LINKER_LANGUAGE CXX)
 #target_sources(rooms PUBLIC Room.h EmptyRoom.h EmptyRoom.cpp MonsterRoom.h MonsterRoom.cpp TreasureRoom.h TreasureRoom.cpp)

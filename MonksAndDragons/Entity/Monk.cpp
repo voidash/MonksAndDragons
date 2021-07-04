@@ -6,9 +6,9 @@
 
 Monk::Monk() {
     //set health points of monk to 30
-    healthPoints = 20;
-    attackPoints = 4;
-    maxHealthPoints = 20;
+    healthPoints = 15;
+    attackPoints = 3;
+    maxHealthPoints = 15;
 }
 
 

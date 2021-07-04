@@ -9,8 +9,10 @@
 #include "Level1.h"
 #include "Level2.h"
 #include "Level.h"
+#include "RandomLevelGenerator.h"
 #include <cstdlib>
 #include "TUI/SplashScreen.h"
+#include <string>
 
 Subject SubjectInstance::subject{};
 
@@ -28,10 +30,13 @@ void startGame(){
     std::string buffer;
     std::cout << "enter the name of player >" << std::endl;
     std::cin >> buffer;
+    std::cin.ignore();
     player.setName(buffer);
+
+    std::string desc;
     std::cout << "Customized Description of player > "<< std::endl;
-    std::cin >> buffer;
-    player.setDescription(buffer);
+    std::getline(std::cin,desc);
+    player.setDescription(desc);
 
     //Observer pattern
     TraverseLogger lg{};
@@ -42,9 +47,9 @@ void startGame(){
 
     //check if random level is setup or not
     if(SettingsSingleton::getInstance().settings.randomLevel){
-        int randomData = rand() % 2;
-        std::cout << "You are now playing level " << randomData << std::endl;
-        RoomNavigator navigator(&player,levels[randomData],false);
+        std::cout << "You are now playing a random level. You want to play level by level, you can configure settings " << std::endl;
+        Level * coolRandomLevel = new RandomLevel();
+        RoomNavigator navigator(&player,coolRandomLevel,false);
         GameLogic(navigator);
     }else{
         for(Level *a: levels){

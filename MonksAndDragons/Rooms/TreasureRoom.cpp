@@ -11,8 +11,6 @@ void TreasureRoom::roomSpeciality(MovingEntity &player) {
 }
 
 void TreasureRoom::finishGame(MovingEntity &player) {
-    //stub
-    //show shomething when game is finished.
 }
 
 TreasureRoom::TreasureRoom() {

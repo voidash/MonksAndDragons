@@ -23,7 +23,7 @@ public:
         SettingsJSON json{};
         json.loadJSON();
         json.fromJSON(settings);
-        std::cout << settings.title << std::endl;
+//        std::cout << settings.title << std::endl;
 
 
     }
