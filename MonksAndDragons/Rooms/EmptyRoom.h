@@ -6,10 +6,7 @@
 #ifndef MONKSANDDRAGONS_EMPTYROOM_H
 #define MONKSANDDRAGONS_EMPTYROOM_H
 
-#include "room.h"
-//   /' .-'oO`'-.,\                                              /,.-'`Oo'-. '\
-//   |~/!!O#Oo    `                                              `    oO#O!!\~|
-//|/|!!)##               Empty Room                             ##(!!|\|
+#include "Room.h"
 #include <iostream>
 #include "MovingEntity.h"
 
